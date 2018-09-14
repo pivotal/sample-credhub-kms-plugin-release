@@ -1,0 +1,3 @@
+[submodule "src/github.com/pivotal/sample-credhub-kms-plugin"]
+	path = src/github.com/pivotal/sample-credhub-kms-plugin
+	url = git@github.com:pivotal/sample-credhub-kms-plugin.git

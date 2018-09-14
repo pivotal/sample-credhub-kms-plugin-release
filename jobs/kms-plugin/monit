@@ -1,0 +1,5 @@
+check process kms-plugin
+  with pidfile /var/vcap/sys/run/kms-plugin/pid
+  start program "/var/vcap/jobs/kms-plugin/bin/ctl start"
+  stop program "/var/vcap/jobs/kms-plugin/bin/ctl stop"
+  group vcap
