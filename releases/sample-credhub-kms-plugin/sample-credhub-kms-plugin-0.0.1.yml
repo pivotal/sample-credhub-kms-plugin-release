@@ -1,0 +1,21 @@
+name: sample-credhub-kms-plugin
+version: 0.0.1
+commit_hash: f7e9c3b
+uncommitted_changes: false
+jobs:
+- name: kms-plugin
+  version: 5e5ee948a9e82bde88b9e00431e13b9637c8b5a3
+  fingerprint: 5e5ee948a9e82bde88b9e00431e13b9637c8b5a3
+  sha1: e3399e3dd711f44b3c92c3fbac3561f8b790d997
+packages:
+- name: golang-1.11-linux
+  version: bb9ab510b4b82a163137540402017207b9fc7e06
+  fingerprint: bb9ab510b4b82a163137540402017207b9fc7e06
+  sha1: f76df378af8cfd97e8fd60cdbc5b00ee952d5caf
+  dependencies: []
+- name: kms-plugin
+  version: 1a252057ce2532a71c23a3336f225b423440d122
+  fingerprint: 1a252057ce2532a71c23a3336f225b423440d122
+  sha1: f89c6f481775e35255d5f141657090cd0fbda817
+  dependencies:
+  - golang-1.11-linux
