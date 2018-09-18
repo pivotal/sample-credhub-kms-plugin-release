@@ -9,13 +9,17 @@ case $1 in
     mkdir -p $RUN_DIR $LOG_DIR
     chown -R vcap:vcap $RUN_DIR $LOG_DIR
 
-    echo $$ > $PIDFILE
-
-    exec /var/vcap/packages/kms-plugin/bin/kms-plugin \
+    /sbin/start-stop-daemon \
+      --pidfile "$PIDFILE" \
+      --make-pidfile \
+      --chuid vcap:vcap \
+      --start \
+      --exec /var/vcap/packages/kms-plugin/bin/kms-plugin \
       $RUN_DIR/kms-plugin.sock \
-      >>  $LOG_DIR/kms-plugin.stdout.log \
-      2>> $LOG_DIR/kms-plugin.stderr.log
+      >> "$LOG_DIR/kms-plugin.stdout.log" \
+      2>> "$LOG_DIR/kms-plugin.stderr.log"
     ;;
+
 
   stop)
     kill -9 `cat $PIDFILE`
