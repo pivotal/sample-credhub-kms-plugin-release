@@ -7,4 +7,8 @@ templates:
 packages:
 - kms-plugin
 
-properties: {}
+properties:
+
+  kms-plugin.socket_endpoint:
+    description: socket endpoint to listen to credhub on
+    example: unix:///tmp/socketfile.sock
