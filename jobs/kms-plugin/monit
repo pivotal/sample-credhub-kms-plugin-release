@@ -1,5 +1,13 @@
+<% if p('bpm.enabled') %>
+check process kms-plugin
+  with pidfile /var/vcap/sys/run/bpm/kms-plugin/kms-plugin.pid
+  start program "/var/vcap/jobs/bpm/bin/bpm start kms-plugin"
+  stop program "/var/vcap/jobs/bpm/bin/bpm stop kms-plugin"
+  group vcap
+<% else %>
 check process kms-plugin
   with pidfile /var/vcap/sys/run/kms-plugin/pid
   start program "/var/vcap/jobs/kms-plugin/bin/ctl start"
   stop program "/var/vcap/jobs/kms-plugin/bin/ctl stop"
   group vcap
+<% end %>

@@ -1,0 +1,25 @@
+<%=
+  {
+    'processes' => [
+      'name' => 'kms-plugin',
+      'executable' => '/var/vcap/packages/kms-plugin/bin/kms-plugin',
+      'env' => {
+        'RUN_DIR' => '/var/vcap/sys/run/kms-plugin',
+        'LOG_DIR' => '/var/vcap/sys/log/kms-plugin',
+        'PIDFILE' => '/var/vcap/sys/run/bpm/kms-plugin/kms-plugin.pid'
+      },
+      'args' => [
+        p('kms-plugin.socket_endpoint')
+      ],
+      'additional_volumes' => [
+        {
+          'path' => File.dirname(p('kms-plugin.socket_endpoint')),
+          'writable' => true,
+          'allow_executions' => true
+
+        }
+      ]
+    ]
+  }.to_yaml
+%>
+

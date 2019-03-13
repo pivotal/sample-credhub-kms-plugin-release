@@ -4,6 +4,9 @@ name: kms-plugin
 templates:
   ctl.erb: bin/ctl
 
+  # BPM
+  bpm.yml.erb: config/bpm.yml
+
 packages:
 - kms-plugin
 
@@ -12,3 +15,8 @@ properties:
   kms-plugin.socket_endpoint:
     description: socket endpoint to listen to credhub on
     example: unix:///tmp/socketfile.sock
+
+  # BPM
+  bpm.enabled:
+    description: "Enable Bosh Process Manager"
+    default: false
