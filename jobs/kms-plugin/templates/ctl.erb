@@ -16,6 +16,8 @@ case $1 in
       --start \
       --exec /var/vcap/packages/kms-plugin/bin/kms-plugin \
       <%= p('kms-plugin.socket_endpoint') %> \
+      /var/vcap/jobs/kms-plugin/certs/cert.pem \
+      /var/vcap/jobs/kms-plugin/certs/private.key \
       >> "$LOG_DIR/kms-plugin.stdout.log" \
       2>> "$LOG_DIR/kms-plugin.stderr.log"
     ;;

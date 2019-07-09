@@ -9,7 +9,9 @@
         'PIDFILE' => '/var/vcap/sys/run/bpm/kms-plugin/kms-plugin.pid'
       },
       'args' => [
-        p('kms-plugin.socket_endpoint')
+        p('kms-plugin.socket_endpoint'),
+        '/var/vcap/jobs/kms-plugin/certs/cert.pem',
+        '/var/vcap/jobs/kms-plugin/certs/private.key',
       ],
       'additional_volumes' => [
         {

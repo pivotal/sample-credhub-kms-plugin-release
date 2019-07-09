@@ -3,6 +3,8 @@ name: kms-plugin
 
 templates:
   ctl.erb: bin/ctl
+  cert.pem.erb: certs/cert.pem
+  private.key.erb: certs/private.key
 
   # BPM
   bpm.yml.erb: config/bpm.yml
@@ -15,6 +17,12 @@ properties:
   kms-plugin.socket_endpoint:
     description: socket endpoint to listen to credhub on
     example: unix:///tmp/socketfile.sock
+
+  kms-plugin.certificate:
+    description: Certificate for TLS
+  
+  kms-plugin.private_key:
+    description: Private key for TLS
 
   # BPM
   bpm.enabled:
