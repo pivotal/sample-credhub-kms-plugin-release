@@ -1,0 +1,15 @@
+---
+name: smoke-tests
+
+templates:
+  run.sh.erb: bin/run
+
+packages:
+- smoke-tests
+- golang-1.11-linux
+
+properties:
+  kms-plugin.ca:
+    description: CA used to trust the KMS plugin's certificate
+  kms-plugin.host:
+    description: Common name of KMS plugin certificate

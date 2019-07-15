@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+
+export KMS_PLUGIN_CA_CERT="<%= p('kms-plugin.ca') %>"
+export KMS_PLUGIN_HOST="<%= p('kms-plugin.host') %>"
+SMOKE_BIN=/var/vcap/packages/smoke-tests/bin
+"$SMOKE_BIN"/ginkgo "$SMOKE_BIN"/smoke.test

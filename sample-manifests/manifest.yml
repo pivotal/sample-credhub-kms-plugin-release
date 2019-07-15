@@ -1,0 +1,52 @@
+---
+name: sample-credhub-kms-plugin
+
+releases:
+- name: sample-credhub-kms-plugin
+  version: latest
+
+stemcells:
+- alias: default
+  os: ubuntu-xenial
+  version: latest
+
+update:
+  canaries: 1
+  max_in_flight: 10
+  update_watch_time: 10000-200000
+  canary_watch_time: 10000-200000
+
+instance_groups:
+- name: sample-credhub-kms-plugin
+  instances: 1
+  vm_type: default
+  azs: [z1]
+  stemcell: default
+  networks:
+  - name: default
+  jobs:
+  - name: kms-plugin
+    release: sample-credhub-kms-plugin
+    properties:
+      kms-plugin:
+        socket_endpoint: /var/vcap/sys/run/kms-plugin/kms-plugin.sock
+        certificate: ((kms-cert.certificate))
+        private_key: ((kms-cert.private_key))
+  - name: smoke-tests
+    release: sample-credhub-kms-plugin
+    properties:
+      kms-plugin:
+        ca: ((kms-cert.ca))
+        host: kms-cert-host
+
+variables:
+- name: kms-ca
+  type: certificate
+  options:
+    common_name: kms-ca
+    is_ca: true
+- name: kms-cert
+  type: certificate
+  options:
+    common_name: kms-cert-host
+    ca: kms-ca

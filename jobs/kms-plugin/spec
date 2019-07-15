@@ -20,7 +20,7 @@ properties:
 
   kms-plugin.certificate:
     description: Certificate for TLS
-  
+
   kms-plugin.private_key:
     description: Private key for TLS
 

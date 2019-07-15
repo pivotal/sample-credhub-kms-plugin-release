@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e
+
+source /var/vcap/packages/golang-*-linux/bosh/compile.env
+
+mkdir -p "${BOSH_INSTALL_TARGET}/bin"
+mkdir -p "${GOPATH}/src"
+
+mv smoke-tests/vendor/* "${GOPATH}/src"
+mv smoke-tests "${GOPATH}/src"
+
+go install github.com/onsi/ginkgo/...
+mv "${GOPATH}/bin/ginkgo" "${BOSH_INSTALL_TARGET}/bin"
+
+pushd "${GOPATH}/src/smoke-tests"
+  go test -c -o "${BOSH_INSTALL_TARGET}/bin/smoke.test" .
+popd
+
+chmod +x "${BOSH_INSTALL_TARGET}/bin/smoke.test"
