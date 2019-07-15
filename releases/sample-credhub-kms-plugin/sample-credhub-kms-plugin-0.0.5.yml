@@ -1,0 +1,35 @@
+name: sample-credhub-kms-plugin
+version: 0.0.5
+commit_hash: 6b5ec2d
+uncommitted_changes: false
+jobs:
+- name: kms-plugin
+  version: 3e4941fdaf238ea98648e033bde4a06ac30c0b43
+  fingerprint: 3e4941fdaf238ea98648e033bde4a06ac30c0b43
+  sha1: 09ab4817225c506d007a5ae18ab90cdf70c9a30a
+- name: smoke-tests
+  version: bbeb336e7733cce6d4bf0f17ecf06723b15e6564
+  fingerprint: bbeb336e7733cce6d4bf0f17ecf06723b15e6564
+  sha1: 85fd1c62af546860272835451b7942e219cd1e63
+packages:
+- name: golang-1.11-linux
+  version: 1713e92cb48ac5a86a78bb8eba12d69cf05d13382411128a3bd7b748585d22ba
+  fingerprint: 1713e92cb48ac5a86a78bb8eba12d69cf05d13382411128a3bd7b748585d22ba
+  sha1: sha256:36421b78eeeae92b036f4b6097d57d4fd2e08742875ff051fcbdb5985bb4e975
+  dependencies: []
+- name: kms-plugin
+  version: bb0c5910720a1ad4388745cc89578722b2895221
+  fingerprint: bb0c5910720a1ad4388745cc89578722b2895221
+  sha1: 26a18c79f556e46a4868b0bbe9c5b1a78803d03c
+  dependencies:
+  - golang-1.11-linux
+- name: smoke-tests
+  version: 5bd30e256603549fbca9921b26d3708fb6c0908e
+  fingerprint: 5bd30e256603549fbca9921b26d3708fb6c0908e
+  sha1: a8397f8a0671749616c85d907f5c3d32476770b6
+  dependencies:
+  - golang-1.11-linux
+license:
+  version: df0fe0fe4202c4e4c808533bbd156f8760b431ac
+  fingerprint: df0fe0fe4202c4e4c808533bbd156f8760b431ac
+  sha1: ee1fa8f9befc628f228dcdb3a5df980f756a3cf2
