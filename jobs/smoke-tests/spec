@@ -6,7 +6,7 @@ templates:
 
 packages:
 - smoke-tests
-- golang-1.11-linux
+- golang-1-linux
 
 properties:
   kms-plugin.ca:

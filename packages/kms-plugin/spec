@@ -2,7 +2,7 @@
 name: kms-plugin
 
 dependencies:
-- golang-1.11-linux
+- golang-1-linux
 
 files:
 - github.com/pivotal/sample-credhub-kms-plugin/**/*
