@@ -2,21 +2,21 @@ package main
 
 import (
 	"fmt"
+	"github.com/pivotal/sample-credhub-kms-plugin-release/src/github.com/pivotal/sample-credhub-kms-plugin/plugin"
 	"log"
 	"os"
 	"os/signal"
 	"syscall"
 
-	"github.com/pivotal/sample-credhub-kms-plugin/plugin"
 )
 
 func main() {
-	if len(os.Args) < 3  {
-		fmt.Fprintf(os.Stderr, "Usage: %s <path-to-unix-socket> <public-key> <private-key> \n", os.Args[0])
+	if len(os.Args) < 2  {
+		fmt.Fprintf(os.Stderr, "Usage: %s <path-to-unix-socket>\n", os.Args[0])
 		os.Exit(1)
 	}
 
-	p, err := plugin.New(os.Args[1], os.Args[2], os.Args[3])
+	p, err := plugin.New(os.Args[1])
 	if err != nil {
 		log.Fatal(err)
 	}
