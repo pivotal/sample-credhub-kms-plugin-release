@@ -1,6 +1,6 @@
 ---
 final_name: sample-credhub-kms-plugin
 blobstore:
-  provider: s3
+  provider: gcs
   options:
     bucket_name: sample-credhub-kms-plugin-release-blobs
